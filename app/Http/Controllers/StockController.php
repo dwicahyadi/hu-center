@@ -31,6 +31,8 @@ class StockController extends Controller
     ];
 
     var $statuses = ['on warehouse','on canvasser','sold', 'expired'];
+
+
     public function index(Request $request)
     {
         $data = Stock::query();
@@ -55,6 +57,61 @@ class StockController extends Controller
         $data = $data->paginate(25)->appends($request->all());
 
         return view('stock.index',['thead'=> $this->thead, 'statuses' => $this->statuses ,'data'=>$data]);
+    }
+
+    public function hu2(Request $request)
+    {
+        $columns = ['HU2 No', 'Description', 'Item Code'];
+        $data = Stock::query();
+
+        if($request['order'])
+            $data = $data->orderBy($request['order']);
+        if($request['status'])
+            $data = $data->where('status','=',$request['status']);
+        else
+            $data = $data->where('status','=','on warehouse');
+        $data = $data->groupBy('hu2_no')->paginate(25)->appends($request->all());
+
+        return view('stock.h2',['thead'=> $columns, 'statuses' => $this->statuses ,'data'=>$data]);
+    }
+
+    public function hu1($hu2_no, Request $request)
+    {
+        $columns = ['HU1 No'];
+        $data = Stock::query();
+
+        if($request['order'])
+            $data = $data->orderBy($request['order']);
+        if($request['status'])
+            $data = $data->where('status','=',$request['status']);
+        else
+            $data = $data->where('status','=','on warehouse');
+        $data = $data->where('hu2_no', $hu2_no)->paginate(25)->appends($request->all());
+
+        return view('stock.h1',[
+            'thead'=> $columns, 'statuses' => $this->statuses ,
+            'hu2_no' => $hu2_no ,
+            'data'=>$data]);
+    }
+
+    public function box($hu2_no,$hu1_no, Request $request)
+    {
+        $columns = ['IP', 'MSISDN No', 'Status', 'Expire Date'];
+        $data = Stock::query();
+
+        if($request['order'])
+            $data = $data->orderBy($request['order']);
+        if($request['status'])
+            $data = $data->where('status','=',$request['status']);
+        else
+            $data = $data->where('status','=','on warehouse');
+        $data = $data->where('hu1_no', $hu1_no)->paginate(25)->appends($request->all());
+
+        return view('stock.sn_msisdn',[
+            'thead'=> $columns, 'statuses' => $this->statuses ,
+            'hu2_no' => $hu2_no ,
+            'hu1_no' => $hu1_no ,
+            'data'=>$data]);
     }
 
     public function in()

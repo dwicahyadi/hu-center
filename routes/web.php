@@ -20,7 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware('auth')->group(function (){
-    Route::get('stock','StockController@index')->name('stock.list');
+    Route::get('stock/list','StockController@index')->name('stock.list');
+    Route::get('stock/hu2','StockController@hu2')->name('stock.hu2');
+    Route::get('stock/hu1/{hu2_no}','StockController@hu1')->name('stock.hu1');
+    Route::get('stock/hu1/{hu2_no}/{hu1_no}','StockController@box')->name('stock.box');
     Route::get('stock/in','StockController@in')->name('stock.in');
     Route::post('stock/in','StockController@stock_in')->name('stock.stock_in');
     Route::get('stock/search','StockController@search')->name('stock.search');
