@@ -18,8 +18,14 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('stock','StockController@index')->name('stock.list');
-Route::get('stock/in','StockController@in')->name('stock.in');
-Route::post('stock/in','StockController@stock_in')->name('stock.stock_in');
+
+Route::middleware('auth')->group(function (){
+    Route::get('stock','StockController@index')->name('stock.list');
+    Route::get('stock/in','StockController@in')->name('stock.in');
+    Route::post('stock/in','StockController@stock_in')->name('stock.stock_in');
+    Route::get('stock/search','StockController@search')->name('stock.search');
+    Route::post('stock/search','StockController@postSearch')->name('stock.postSearch');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');

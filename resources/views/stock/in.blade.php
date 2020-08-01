@@ -38,11 +38,11 @@
                     </div>
                 </div>
                 <hr>
-                <div class="form-group">
+        {{--        <div class="form-group">
                     <label class="clearfix">Source</label>
                     <label class="mx-4"><input type="radio" name="source" value="po" required> PO XL</label>
                     <label class="mx-4"><input type="radio" name="source" value="transfer" required> Transfer dari warehouse lain</label>
-                </div>
+                </div>--}}
                 <hr>
                 <div class="form-group w-25">
                     <label for="erp_item">ERP Item Name</label>

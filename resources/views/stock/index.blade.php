@@ -4,8 +4,8 @@
 
     @include('stock._nav',['navs'=> ['Stock']])
     <div>
-        <form action="{{ route('stock.list') }}" class="form-inline p-2">
-            <div class="form-group">
+        <form action="{{ route('stock.list') }}" method="get" class="form-inline p-2">
+            <div class="form-group mr-4">
                 <label class="mr-4">Urutkan Berdasar</label>
                 <select name="order" class="form-control mx-2">
                     <option value="">Default</option>
@@ -17,21 +17,35 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mr-4">
                 <label class="mr-4">Status</label>
-                <select name="order" class="form-control mx-2">
+                <select name="status" class="form-control mx-2">
                     @foreach($statuses as $status)
-                        @php($value = \Illuminate\Support\Str::snake(strtolower($status)))
-                        <option @if( request('order') == $value) selected
-                                @endif value="{{ $value }}">{{ $status }}</option>
+                        <option @if( request('status') == $status) selected
+                                @endif value="{{ $status }}">{{ $status }}</option>
                     @endforeach
                 </select>
             </div>
+
+            <div class="form-group mr-4">
+                <button class="btn btn-sm btn-primary">Tampilkan</button>
+            </div>
         </form>
     </div>
+
+    @if(request('s'))
+        <div class="bg-warning p-2">
+            <a href="{{ route('stock.search', request()->all()) }}">Edit Parameter Pencarian</a>
+        </div>
+    @endif
+    <div class="p-2 d-flex justify-content-between">
+        @php($current = $data->perPage() * $data->currentPage())
+        {{ number_format($current - $data->perPage() ) }} - {{ number_format($current) }} dari {{ number_format($data->total()) }} {{ $data->links() }}
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped bg-white">
-            <thead class="thead-light sticky-top position-sticky">
+            <thead class="thead-dark sticky-top position-sticky">
             <tr>
                 <th>Option</th>
                 @foreach($thead as $head)
@@ -58,8 +72,9 @@
             </tbody>
         </table>
     </div>
-    <div class="py-2">
-        {{ $data->links() }}
+    <div class="p-2 d-flex justify-content-between">
+        @php($current = $data->perPage() * $data->currentPage())
+        {{ number_format($current - $data->perPage() ) }} - {{ number_format($current) }} dari {{ number_format($data->total()) }} {{ $data->links() }}
     </div>
 
 @endsection

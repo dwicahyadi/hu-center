@@ -6,6 +6,7 @@ use App\Imports\ImportListHU;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -21,7 +22,7 @@ class StockController extends Controller
         "MSISDN No",
         "Expire Date",
         "ERP Item ID",
-        "ERP Item Name",
+        "Prima ERP Item Name",
         "Cluster",
         "Micro Cluster",
         "City",
@@ -30,9 +31,29 @@ class StockController extends Controller
     ];
 
     var $statuses = ['on warehouse','on canvasser','sold', 'expired'];
-    public function index()
+    public function index(Request $request)
     {
-        $data = Stock::paginate(20);
+        $data = Stock::query();
+
+        if ($request['s'])
+        {
+            foreach ($this->thead as $field)
+            {
+                $name = Str::snake(strtolower($field));
+                if ( isset($request[$name]) ) {
+                    $data = $data->where($name,$request['operator-'.$name],$request[$name]);
+                }
+            }
+        }
+
+        if($request['order'])
+            $data = $data->orderBy($request['order']);
+        if($request['status'])
+            $data = $data->where('status','=',$request['status']);
+        else
+            $data = $data->where('status','=','on warehouse');
+        $data = $data->paginate(25)->appends($request->all());
+
         return view('stock.index',['thead'=> $this->thead, 'statuses' => $this->statuses ,'data'=>$data]);
     }
 
@@ -41,10 +62,32 @@ class StockController extends Controller
         return view('stock.in');
     }
 
+    public function search()
+    {
+        return view('stock.search',['fields'=>$this->thead]);
+    }
+
+    public function Postsearch(Request $request)
+    {
+        $params = $request->all();
+        unset($params['_token']);
+        foreach ($this->thead as $field)
+        {
+            $name = Str::snake(strtolower($field));
+
+            if( !$request[$name])
+            {
+                unset($params[$name]);
+                unset($params['operator-'.$name]);
+            }
+        }
+        return redirect(route('stock.list',$params));
+    }
+
+
     public function stock_in(Request $request)
     {
 
-//        dd($request->all());
         $data = Excel::toArray(new ImportListHU(), $request->file('file'));
         if($request != 'transfer')
         {
@@ -69,7 +112,6 @@ class StockController extends Controller
             $insert[] = $item;
         }
         $chunks = array_chunk($insert, 1000);
-
         foreach ($chunks as $chunk) {
             Stock::insertOrIgnore($chunk);
         }

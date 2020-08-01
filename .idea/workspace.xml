@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9366567-5ac7-45ca-a812-0c20ebe28465" name="Default Changelist" comment="" />
+    <list default="true" id="b9366567-5ac7-45ca-a812-0c20ebe28465" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/stock/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stock/_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stock/_nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stock/in.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stock/in.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stock/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stock/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,10 +158,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/stock" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/stock" />
     </key>
   </component>
@@ -178,6 +188,9 @@
       <workItem from="1595985730263" duration="8818000" />
       <workItem from="1596008610695" duration="1554000" />
       <workItem from="1596021865642" duration="487000" />
+      <workItem from="1596102977135" duration="348000" />
+      <workItem from="1596124729062" duration="48000" />
+      <workItem from="1596246369990" duration="7286000" />
     </task>
     <task id="LOCAL-00001" summary="First commit, sudah bisa import dari excel">
       <created>1596022042200</created>
@@ -209,6 +222,10 @@
       <screen x="48" y="27" width="1318" height="741" />
     </state>
     <state x="246" y="27" width="912" height="741" key="CommitChangelistDialog2/48.27.1318.741@48.27.1318.741" timestamp="1596022041820" />
+    <state x="1856" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1596249662596">
+      <screen x="0" y="27" width="2732" height="741" />
+    </state>
+    <state x="1856" y="155" width="424" height="491" key="FileChooserDialogImpl/0.27.2732.741@0.27.2732.741" timestamp="1596249662596" />
     <state x="564" y="299" width="286" height="203" key="Github.ShareDialog" timestamp="1596022096628">
       <screen x="48" y="27" width="1318" height="741" />
     </state>
@@ -229,10 +246,10 @@
       <screen x="48" y="27" width="1318" height="741" />
     </state>
     <state x="371" y="174" key="run.anything.popup/48.27.1318.741@48.27.1318.741" timestamp="1595903804605" />
-    <state x="370" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1596014030989">
-      <screen x="48" y="27" width="1318" height="741" />
+    <state x="1509" y="126" width="1393" height="678" key="search.everywhere.popup" timestamp="1596253442301">
+      <screen x="0" y="27" width="2732" height="741" />
     </state>
-    <state x="1509" y="126" width="1393" height="678" key="search.everywhere.popup/0.27.2732.741@0.27.2732.741" timestamp="1595998041697" />
+    <state x="1509" y="126" width="1393" height="678" key="search.everywhere.popup/0.27.2732.741@0.27.2732.741" timestamp="1596253442301" />
     <state x="370" y="89" width="672" height="678" key="search.everywhere.popup/48.27.1318.741@48.27.1318.741" timestamp="1596014030989" />
   </component>
 </project>
