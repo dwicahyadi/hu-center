@@ -101,5 +101,6 @@
             $('.select2').select2();
         });
     </script>
+    @stack('script')
 </body>
 </html>

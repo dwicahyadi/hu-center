@@ -23,7 +23,7 @@ class CreateStocksTable extends Migration
             $table->string('item_code',50)->nullable();
             $table->string('msisdn_no',25)->nullable()->unique();
             $table->date('expire_date')->nullable();
-            $table->enum('status',['on warehouse','on canvasser','sold', 'expired'])->default('on warehouse');
+            $table->enum('status',['on warehouse','on canvasser','sold', 'expired', 'transfer'])->default('on warehouse');
             $table->integer('prima_erp_item_id')->nullable();
             $table->string('prima_erp_item_name',100)->nullable();
             $table->string('cluster',100)->nullable();

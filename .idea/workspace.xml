@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9366567-5ac7-45ca-a812-0c20ebe28465" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/stock/h1.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/stock/h2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/stock/sn_msisdn.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_8_4_20__2_23_PM.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/StockHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/stock/old-index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/stock/out.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_27_180233_create_stocks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_27_180233_create_stocks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/stock/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/stock/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,6 +153,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/stock" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -170,6 +174,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -189,7 +194,21 @@
       <workItem from="1596021865642" duration="487000" />
       <workItem from="1596102977135" duration="348000" />
       <workItem from="1596124729062" duration="48000" />
-      <workItem from="1596246369990" duration="12375000" />
+      <workItem from="1596246369990" duration="12913000" />
+      <workItem from="1596525793100" duration="5589000" />
+      <workItem from="1596590864429" duration="1198000" />
+      <workItem from="1596700968991" duration="1198000" />
+      <workItem from="1596765621005" duration="596000" />
+      <workItem from="1596811211655" duration="498000" />
+      <workItem from="1597199312400" duration="10443000" />
+      <workItem from="1597371059497" duration="3591000" />
+      <workItem from="1597718297927" duration="1168000" />
+      <workItem from="1597727533428" duration="481000" />
+      <workItem from="1597801967670" duration="1205000" />
+      <workItem from="1597970853076" duration="5018000" />
+      <workItem from="1598061597453" duration="9681000" />
+      <workItem from="1598152289477" duration="90000" />
+      <workItem from="1598280450088" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="First commit, sudah bisa import dari excel">
       <created>1596022042200</created>
@@ -202,7 +221,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit, sudah bisa import dari excel" />
@@ -213,6 +232,10 @@
       <screen x="48" y="27" width="1318" height="741" />
     </state>
     <state x="492" y="69" width="419" height="664" key="#com.intellij.ide.util.MemberChooser/48.27.1318.741@48.27.1318.741" timestamp="1595953790044" />
+    <state x="485" y="165" width="433" height="479" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1597206172413">
+      <screen x="48" y="27" width="1318" height="741" />
+    </state>
+    <state x="485" y="165" width="433" height="479" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/48.27.1318.741@48.27.1318.741" timestamp="1597206172413" />
     <state x="485" y="84" width="433" height="633" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1595992465712">
       <screen x="48" y="27" width="1318" height="741" />
     </state>
@@ -233,6 +256,10 @@
       <screen x="48" y="27" width="1318" height="741" />
     </state>
     <state x="561" y="331" width="281" height="139" key="Laravel.ExtractPartialViewDialog/48.27.1318.741@48.27.1318.741" timestamp="1595902489033" />
+    <state x="470" y="101" width="463" height="600" key="NewPhpClassDialog" timestamp="1596532666510">
+      <screen x="48" y="27" width="2684" height="741" />
+    </state>
+    <state x="470" y="101" width="463" height="600" key="NewPhpClassDialog/48.27.2684.741@48.27.2684.741" timestamp="1596532666510" />
     <state x="196" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1595873067310">
       <screen x="48" y="27" width="1318" height="741" />
     </state>
@@ -241,14 +268,14 @@
       <screen x="48" y="27" width="1318" height="741" />
     </state>
     <state x="550" y="306" width="303" height="189" key="VCS.ChangelistChooser/48.27.1318.741@48.27.1318.741" timestamp="1595902475335" />
-    <state x="371" y="174" key="run.anything.popup" timestamp="1595903804605">
+    <state x="371" y="174" width="672" height="677" key="run.anything.popup" timestamp="1597206295989">
       <screen x="48" y="27" width="1318" height="741" />
     </state>
-    <state x="371" y="174" key="run.anything.popup/48.27.1318.741@48.27.1318.741" timestamp="1595903804605" />
-    <state x="1509" y="126" width="1393" height="678" key="search.everywhere.popup" timestamp="1596262653280">
-      <screen x="0" y="27" width="2732" height="741" />
+    <state x="371" y="174" width="672" height="677" key="run.anything.popup/48.27.1318.741@48.27.1318.741" timestamp="1597206295989" />
+    <state x="370" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1598069025131">
+      <screen x="48" y="27" width="1318" height="741" />
     </state>
     <state x="1509" y="126" width="1393" height="678" key="search.everywhere.popup/0.27.2732.741@0.27.2732.741" timestamp="1596262653280" />
-    <state x="370" y="89" width="672" height="678" key="search.everywhere.popup/48.27.1318.741@48.27.1318.741" timestamp="1596014030989" />
+    <state x="370" y="89" width="672" height="678" key="search.everywhere.popup/48.27.1318.741@48.27.1318.741" timestamp="1598069025131" />
   </component>
 </project>

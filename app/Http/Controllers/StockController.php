@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\StockHelper;
 use App\Imports\ImportListHU;
 use App\Models\Stock;
 use Illuminate\Http\Request;
@@ -32,9 +33,61 @@ class StockController extends Controller
 
     var $statuses = ['on warehouse','on canvasser','sold', 'expired'];
 
-
     public function index(Request $request)
     {
+        $pageTitle = 'Warehouse';
+        $nav = [];
+        $thead = ['Cluster', 'Micro Cluster', 'City'];
+        $data = StockHelper::getAllCity();
+        $targetField = 'city';
+
+        return view('stock.index',compact('pageTitle', 'nav', 'thead', 'data', 'targetField'));
+    }
+
+    public function city($city)
+    {
+        $pageTitle = 'City: '.$city;
+        $nav = ['Warehouse' => route('stock.index')];
+        $thead = ['Item Code','prima_erp_item_name', 'Description',];
+        $data = StockHelper::getAllItemCode(['city'=>$city]);
+        $targetField = 'item_code';
+
+        return view('stock.index',compact('pageTitle', 'nav', 'thead', 'data', 'targetField'));
+    }
+
+    public function item($city, $item_code)
+    {
+        $pageTitle = 'Item: '.$item_code;
+        $nav = ['Warehouse' => route('stock.index'),
+            'City: '.$city => route('stock.city',$city)];
+        $thead = ['HU2 No', 'Expire Date'];
+        $select = $this->setToSnackText($thead);
+        $data = StockHelper::getBY($select,['hu2_no'], ['city'=>$city, 'item_code'=>$item_code]);
+        $targetField = 'hu2_no';
+
+        return view('stock.index',compact('pageTitle', 'nav', 'thead', 'data', 'targetField'));
+    }
+
+    public function hu2($city, $item_code,$hu2_no)
+    {
+        $pageTitle = 'HU2 No: '.$hu2_no;
+        $nav = ['Warehouse' => route('stock.index'),
+            'City: '.$city => route('stock.city',['city'=>$city]),
+            'Item: '.$item_code => route('stock.item', ['city'=>$city, 'item_code'=>$item_code])];
+        $thead = ['HU1 No', 'Expire Date'];
+        $select = $this->setToSnackText($thead);
+        $data = StockHelper::getBY($select,['hu1_no'], ['city'=>$city, 'item_code'=>$item_code, 'hu2_no'=>$hu2_no]);
+        $targetField = 'hu1_no';
+
+        return view('stock.index',compact('pageTitle', 'nav', 'thead', 'data', 'targetField'));
+    }
+
+
+
+    public function list(Request $request)
+    {
+        $data = StockHelper::getBY(['hu2_no'],['hu2_no'],['item_code'=>'SP0KAXHITZD-JKT']);
+        dd($data);
         $data = Stock::query();
 
         if ($request['s'])
@@ -59,21 +112,7 @@ class StockController extends Controller
         return view('stock.index',['thead'=> $this->thead, 'statuses' => $this->statuses ,'data'=>$data]);
     }
 
-    public function hu2(Request $request)
-    {
-        $columns = ['HU2 No', 'Description', 'Item Code'];
-        $data = Stock::query();
 
-        if($request['order'])
-            $data = $data->orderBy($request['order']);
-        if($request['status'])
-            $data = $data->where('status','=',$request['status']);
-        else
-            $data = $data->where('status','=','on warehouse');
-        $data = $data->groupBy('hu2_no')->paginate(25)->appends($request->all());
-
-        return view('stock.h2',['thead'=> $columns, 'statuses' => $this->statuses ,'data'=>$data]);
-    }
 
     public function hu1($hu2_no, Request $request)
     {
@@ -172,5 +211,14 @@ class StockController extends Controller
         foreach ($chunks as $chunk) {
             Stock::insertOrIgnore($chunk);
         }
+    }
+
+    private function setToSnackText(array $thead): array
+    {
+        $snack_type = [];
+        foreach ($thead as $item) {
+            $snack_type[] = Str::snake(strtolower($item));
+        }
+        return $snack_type;
     }
 }
